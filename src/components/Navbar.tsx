@@ -40,7 +40,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Lock body scroll while mobile menu is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => {
@@ -50,13 +49,16 @@ const Navbar = () => {
 
   return (
     <>
-      {/* === Mobile: burger (top-left) === */}
+      {/* === Floating language toggle (top-right, all breakpoints) === */}
+      <LanguageToggle />
+
+      {/* === Mobile burger (top-left) === */}
       <button
         className="
           fixed left-4 top-4 z-[60] md:hidden
-          w-10 h-10 flex items-center justify-center
+          w-[34px] h-[34px] flex items-center justify-center
           rounded-full bg-white/5 border border-white/15
-          backdrop-blur-xl text-white/85
+          backdrop-blur-xl shadow-lg text-white/85
           hover:bg-white/10 hover:text-cyan-200
           transition-colors
           focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60
@@ -74,29 +76,21 @@ const Navbar = () => {
             transition={{ duration: 0.18 }}
             className="flex"
           >
-            {menuOpen ? <X size={20} strokeWidth={2.25} /> : <Menu size={20} strokeWidth={2.25} />}
+            {menuOpen ? <X size={18} strokeWidth={2.25} /> : <Menu size={18} strokeWidth={2.25} />}
           </motion.span>
         </AnimatePresence>
       </button>
 
-      {/* === Mobile: language toggle (top-right) === */}
-      <LanguageToggle variant="floating" />
-
-      {/* === Desktop: centered pill with embedded language toggle === */}
-      <motion.nav
-        initial={false}
-        animate={{
-          y: scrolled ? -2 : 0,
-        }}
-        transition={{ type: "spring", stiffness: 260, damping: 28 }}
-        className={`
+      {/* === Desktop nav pill (centered) === */}
+      <nav
+        className="
           fixed top-4 left-1/2 -translate-x-1/2 z-50
-          hidden md:flex
-        `}
+          hidden md:block
+        "
       >
         <div
           className={`
-            flex items-center gap-1 pl-3 pr-2 py-2 rounded-full
+            flex items-center px-3 py-1.5 rounded-full
             border backdrop-blur-2xl
             transition-all duration-300
             ${
@@ -150,20 +144,13 @@ const Navbar = () => {
               );
             })}
           </ul>
-
-          {/* Divider */}
-          <span className="mx-2 h-5 w-px bg-white/15" aria-hidden />
-
-          {/* Embedded language toggle */}
-          <LanguageToggle variant="inline" />
         </div>
-      </motion.nav>
+      </nav>
 
-      {/* === Mobile: dropdown menu === */}
+      {/* === Mobile dropdown === */}
       <AnimatePresence>
         {menuOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -174,14 +161,13 @@ const Navbar = () => {
               aria-hidden
             />
 
-            {/* Panel */}
             <motion.div
               initial={{ opacity: 0, y: -12, scale: 0.97 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -12, scale: 0.97 }}
               transition={{ duration: 0.22, ease: "easeOut" }}
               className="
-                fixed top-[68px] left-4 right-4 z-50 md:hidden
+                fixed top-[60px] left-4 right-4 z-50 md:hidden
                 rounded-2xl bg-[#0a1c28]/85 border border-white/15
                 backdrop-blur-2xl shadow-2xl
                 px-3 py-3
