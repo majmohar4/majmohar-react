@@ -111,21 +111,21 @@ export const translations = {
       "project-5": {
         title: "Yeet — Self-Hosted File Sharing",
         description:
-          "A minimal upload service with 24-hour expiring links and ClamAV virus scanning.",
+          "A self-hosted file-sharing service. Drop in a file, get back a link that expires after 24 hours. No accounts, no tracking, no third party in between.",
         problem:
-          "Sending a file to a friend usually meant trusting WeTransfer, Discord, or whatever was handy — none of which I control.",
+          "Sending a file to a friend usually meant trusting WeTransfer, Discord, or whatever was handy. I wanted something I host myself and fully control — short links, real expiry, and basic safety checks.",
         solution:
-          "A Python service that accepts uploads, scans them with ClamAV, returns a shareable link, and auto-deletes after 24 hours. Background sweep runs every 15 minutes.",
+          "A Python (Flask) service that accepts uploads up to a configurable size, scans them with ClamAV before they're available, returns a clean shareable link, and stores files without their original extension on disk. A background job sweeps expired files every 15 minutes. Designed to run in a single container on a home server.",
         github: "https://github.com/majmohar4/yeet",
       },
       "project-6": {
-        title: "rac.majmohar.eu — Computer Science Study Hub",
+        title: "rac.majmohar.eu — Matura Study Hub",
         description:
-          "A private site where I consolidate notes, exercises, and references from my school computer science classes.",
+          "A web app that brings every past matura task — electrical engineering, computer science, informatics, sociology — into one place: random task drills, flashcards, learning paths, and a built-in textbook.",
         problem:
-          "Coursework lived in dozens of folders, PDFs, and screenshots — finding anything mid-revision was painful.",
+          "Past matura tasks were scattered across dozens of PDFs by year and subject. Drilling a specific topic, or doing random questions across years, was basically impossible without printing everything.",
         solution:
-          "Built a personal study hub with everything in one searchable place. Source is kept private to avoid copyright issues with the source material.",
+          "Built a study hub that ingests every past matura task and exposes them through random-task practice, flashcards for revision, structured learning paths, and a textbook view. Source kept private because of copyright on the underlying exam material.",
         website: "https://rac.majmohar.eu",
       },
       "project-7": {
@@ -302,23 +302,23 @@ export const translations = {
         github: "https://github.com/majmohar4/ang2",
       },
       "project-5": {
-        title: "Yeet — lastni file sharing",
+        title: "Yeet — self-hosted file sharing",
         description:
-          "Minimalna storitev za nalaganje datotek s povezavami, ki potečejo po 24 urah, in skeniranjem z ClamAV.",
+          "Lastni (self-hosted) servis za deljenje datotek. Naložiš datoteko, dobiš povezavo, ki poteče po 24 urah. Brez računov, brez sledenja, brez posrednika.",
         problem:
-          "Za pošiljanje datotek sem moral zaupati WeTransferju, Discordu ali čemur koli pri roki — nič od tega ni bilo moje.",
+          "Za pošiljanje datotek sem moral zaupati WeTransferju, Discordu ali čemur koli pri roki. Hotel sem nekaj, kar gostim sam in popolnoma nadzorujem — kratke povezave, prave potečne čase in osnovne varnostne preglede.",
         solution:
-          "Python servis, ki sprejme datoteko, jo skenira s ClamAV, vrne deljivo povezavo in vse skupaj samodejno pobriše po 24 urah. Čistilnik teče vsakih 15 minut.",
+          "Python (Flask) servis, ki sprejme datoteko do nastavljive velikosti, jo pred objavo skenira s ClamAV, vrne čisto deljivo povezavo in datoteko na disku shrani brez originalne končnice. Ozadnji čistilnik vsakih 15 minut odstrani potečene datoteke. Zasnovan, da teče v enem kontejnerju na domačem strežniku.",
         github: "https://github.com/majmohar4/yeet",
       },
       "project-6": {
-        title: "rac.majmohar.eu — zbirka šolskih zapiskov RAČ",
+        title: "rac.majmohar.eu — zbirka maturitetnih nalog",
         description:
-          "Zasebna stran, kjer zbiram zapiske, vaje in vire iz pouka računalništva.",
+          "Spletna stran, kjer so na enem mestu zbrane vse naloge iz vseh matur iz elektrotehnike, računalništva, informatike in sociologije — naključne naloge, kartice za ponavljanje, učne poti in vgrajen učbenik.",
         problem:
-          "Gradivo je živelo v desetinah map, PDF-jev in screenshotov — najti nekaj med ponavljanjem je bilo mučenje.",
+          "Naloge preteklih matur so živele po desetinah PDF-jev, razdeljene po letih in predmetih. Trenirati določeno snov ali reševati naključna vprašanja čez vsa leta je bilo skoraj nemogoče brez printanja vsega.",
         solution:
-          "Naredil sem osebno zbirko z vsem na enem iskljivem mestu. Repozitorij ostaja zaseben zaradi avtorskih pravic do gradiva.",
+          "Naredil sem stran, ki uvozi vse pretekle matura naloge in jih ponudi prek treninga z naključnimi nalogami, kartic za ponavljanje, učnih poti in vgrajenega učbenika. Koda ostaja zasebna zaradi avtorskih pravic na izpitnem gradivu.",
         website: "https://rac.majmohar.eu",
       },
       "project-7": {

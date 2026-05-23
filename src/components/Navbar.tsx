@@ -28,6 +28,7 @@ const Navbar = () => {
       { id: "skills", label: t?.nav?.skills },
       { id: "cv", label: t?.nav?.cv },
       { id: "projects", label: t?.nav?.projects },
+      { id: "friends", label: t?.nav?.friends },
       { id: "contact", label: t?.nav?.contact },
     ],
     [t]
