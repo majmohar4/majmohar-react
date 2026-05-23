@@ -43,9 +43,18 @@ export const translations = {
         {
           name: "Lin Čadež",
           desc: "Backend developer, drone pilot & BlueJ enthusiast.",
+          url: "https://cadez.eu/",
         },
-        { name: "Jaka Černetič", desc: "Designer and Reddit user." },
-        { name: "Andriy Gryban", desc: "Web developer & akvavent.si" },
+        {
+          name: "Jaka Černetič",
+          desc: "Designer and Reddit user.",
+          url: "https://jaka.cernetic.cc/",
+        },
+        {
+          name: "Andriy Gryban",
+          desc: "Web developer & akvavent.si",
+          url: "https://gribanica.eu",
+        },
         {
           name: "Dorian Mahnič Dobrovoljc",
           desc: "Java enthusiast & radio amateur.",
@@ -54,56 +63,110 @@ export const translations = {
     },
     projects: {
       title: "Projects",
+      problem: "Problem",
+      solution: "Solution",
+      code: "Code",
+      visit: "Visit",
       "project-1": {
-        title: "SimBank — Banking Simulator",
+        title: "Vegova Urnik — Classroom Schedule Display",
         description:
-          "An educational banking simulator that mimics real-world financial operations for safe learning.",
+          "An ESP32-S3 touchscreen device that shows the current lesson, teacher, and classroom outside each room, with live updates throughout the day.",
         problem:
-          "Students from Lithuania lacked an interactive way to practice financial operations and real-world exercises.",
+          "Hallways at school had no way to see the current period or who was teaching — visitors and students had to wander to find the right room.",
         solution:
-          "I built a realistic sandbox for managing accounts and transactions in a secure environment, designed for learning and skill development.",
-        github: "https://github.com/majmohar/SimBank",
+          "Built a 7-inch touchscreen on ESP32-S3 that pulls the day's schedule as JSON, syncs time over NTP, and renders the previous, current, and next lesson with LVGL on a dual-core task split.",
+        github: "https://github.com/majmohar4/vegova-urnik-javno",
       },
       "project-2": {
-        title: "majmohar-new — Personal Portfolio",
+        title: "ServerMon — Single-Host Monitoring",
         description:
-          "My personal website — a dark, minimalist portfolio for showcasing my knowledge and projects.",
+          "A lightweight live monitoring dashboard for a single server — no Prometheus, no agents, no external database.",
         problem:
-          "I wanted a modern website that reflects technical skill and a sense of design.",
+          "I wanted live CPU, memory, disk, network, and Docker stats on my personal servers without standing up a multi-service monitoring stack.",
         solution:
-          "I developed a responsive website fully designed to match my own style.",
-        github: "https://github.com/majmohar/majmohar-new",
-        website: "https://majmohar.eu",
+          "Flask + psutil samples metrics every second, streams them to the browser over Server-Sent Events, and writes a JSONL log for history. Dark UI, drop-in deploy.",
+        github: "https://github.com/majmohar4/servermon",
       },
       "project-3": {
-        title: "Discord Bot — Automatic Immich Image Uploader",
+        title: "majmohar.eu — Personal Portfolio",
         description:
-          "A Python Discord bot that automatically uploads images from channels to Immich.",
+          "This site. A bilingual (EN/SLO) portfolio built with Vite, React, Tailwind, and framer-motion.",
         problem:
-          "Collecting images from Discord channels was time-consuming and inefficient.",
+          "My previous portfolio felt static, slow, and didn't really look like me.",
         solution:
-          "I created a bot that uses the Immich API to automatically upload images.",
-        github: "https://github.com/majmohar/discord-immich-bot",
+          "Rebuilt from scratch with a glass UI, instant language switching, an embedded CV viewer, and a CI deploy through Vercel.",
+        github: "https://github.com/majmohar4/majmohar-react",
+        website: "https://majmohar.eu",
       },
       "project-4": {
-        title: "ESP32 Page Turner — Page-Turning Pedal",
+        title: "ang2 — Slovenian English Matura Prep",
         description:
-          "A Bluetooth device that allows musicians to turn sheet music pages hands-free.",
+          "A study webapp for the basic-level English matura (Paper 1) — gap-fills, word formation, and vocabulary drawn from 60 past exams (2004–2025).",
         problem:
-          "I needed a way to switch music pages with my foot while playing the piano.",
+          "Prep materials were scattered across PDFs and books, with no way to drill specific question types or filter by year.",
         solution:
-          "I built a pedal using an ESP32 that sends Bluetooth commands to turn pages.",
-        github: "https://github.com/majmohar/esp32-page-turner",
+          "Wrote a single-page app with categorized exercises, filtering and sorting; deployed on Vercel.",
+        github: "https://github.com/majmohar4/ang2",
       },
       "project-5": {
-        title: "RAC_Kastelic — Java School Projects",
+        title: "Yeet — Self-Hosted File Sharing",
         description:
-          "A collection of exercises and projects from the Computer Science course at Vegova Ljubljana, mentored by Kastelic.",
+          "A minimal upload service with 24-hour expiring links and ClamAV virus scanning.",
         problem:
-          "During lessons, we had to solve practical assignments, and I needed a place to store them.",
+          "Sending a file to a friend usually meant trusting WeTransfer, Discord, or whatever was handy — none of which I control.",
         solution:
-          "I prepared a collection of all the tasks we completed throughout the year.",
-        github: "https://github.com/majmohar/RAC_Kastelic",
+          "A Python service that accepts uploads, scans them with ClamAV, returns a shareable link, and auto-deletes after 24 hours. Background sweep runs every 15 minutes.",
+        github: "https://github.com/majmohar4/yeet",
+      },
+      "project-6": {
+        title: "rac.majmohar.eu — Computer Science Study Hub",
+        description:
+          "A private site where I consolidate notes, exercises, and references from my school computer science classes.",
+        problem:
+          "Coursework lived in dozens of folders, PDFs, and screenshots — finding anything mid-revision was painful.",
+        solution:
+          "Built a personal study hub with everything in one searchable place. Source is kept private to avoid copyright issues with the source material.",
+        website: "https://rac.majmohar.eu",
+      },
+      "project-7": {
+        title: "SimBank — Banking Simulator",
+        description:
+          "An educational banking simulator that mimics real-world account and transaction operations in a safe sandbox.",
+        problem:
+          "Students from a partner school in Lithuania had no interactive way to practice financial operations and exercises.",
+        solution:
+          "Built a sandbox for managing accounts and transactions in a controlled environment, designed for learning and skill development.",
+        github: "https://github.com/majmohar4/SimBank",
+      },
+      "project-8": {
+        title: "ESP32 Page Turner — Bluetooth Pedal",
+        description:
+          "A Bluetooth foot pedal that lets musicians turn sheet music pages hands-free.",
+        problem:
+          "I needed to flip pages on my piano sheet music without taking my hands off the keys.",
+        solution:
+          "Built a pedal around an ESP32 that sends Bluetooth HID key events to whatever device is showing the sheet music.",
+        github: "https://github.com/majmohar4/esp32-page-turner",
+      },
+      "project-9": {
+        title: "Discord Immich Uploader",
+        description:
+          "A Python Discord bot that mirrors images posted in a channel into a self-hosted Immich library.",
+        problem:
+          "Group photo channels on Discord were a black hole — nothing was archived to my own photo library.",
+        solution:
+          "Wrote a bot that watches a channel, downloads new images, and uploads them to Immich via its API.",
+        github: "https://github.com/majmohar4/discord-immich-bot",
+      },
+      "project-10": {
+        title: "RAC_Kastelic — Java School Exercises",
+        description:
+          "A year of exercises and small projects from the Computer Science course at Vegova Ljubljana under prof. Kastelic.",
+        problem:
+          "We solved practical Java assignments in class and I needed a clean place to keep them.",
+        solution:
+          "Organised all of the year's tasks into a single repository, one folder per assignment.",
+        github: "https://github.com/majmohar4/RAC_Kastelic",
       },
     },
     cv: {
@@ -173,9 +236,18 @@ export const translations = {
         {
           name: "Lin Čadež",
           desc: "Backend razvijalec, dron pilot & BlueJ navdušenec.",
+          url: "https://cadez.eu/",
         },
-        { name: "Jaka Černetič", desc: "Oblikovalec in Reddit uporabnik." },
-        { name: "Andriy Gryban", desc: "Spletni razvijalec & akvavent.si" },
+        {
+          name: "Jaka Černetič",
+          desc: "Oblikovalec in Reddit uporabnik.",
+          url: "https://jaka.cernetic.cc/",
+        },
+        {
+          name: "Andriy Gryban",
+          desc: "Spletni razvijalec & akvavent.si",
+          url: "https://gribanica.eu",
+        },
         {
           name: "Dorian Mahnič Dobrovoljc",
           desc: "Ljubitelj Jave & radioamater.",
@@ -184,54 +256,110 @@ export const translations = {
     },
     projects: {
       title: "Projekti",
+      problem: "Problem",
+      solution: "Rešitev",
+      code: "Koda",
+      visit: "Obišči",
       "project-1": {
-        title: "SimBank — Bančni simulator",
+        title: "Vegova Urnik — prikazovalnik urnika pred učilnicami",
         description:
-          "Izobraževalni bančni simulator, ki posnema resnične finančne operacije za varno učenje.",
+          "Naprava na ESP32-S3 s 7-palčnim zaslonom, ki pred vsako učilnico prikazuje trenutno uro, učitelja in razred z živimi posodobitvami čez dan.",
         problem:
-          "Dijakom iz Litve je primanjkovalo interaktivnega načina za vadbo finančnih operacij in vaje za resnično delo.",
+          "Na hodnikih ni bilo načina, da bi videl, katera ura poteka in kdo uči — obiskovalci in dijaki so blodili po šoli, da so našli pravi razred.",
         solution:
-          "Zgradil sem realističen peskovnik za upravljanje računov in transakcij v varnem okolju. Namenjen učenju in razvoju spretnosti.",
-        github: "https://github.com/majmohar/SimBank",
+          "Naredil sem napravo na ESP32-S3 s 7-palčnim zaslonom, ki s strežnika potegne dnevni urnik kot JSON, sinhronizira čas prek NTP in z LVGL na dveh jedrih izrisuje prejšnjo, trenutno in naslednjo uro.",
+        github: "https://github.com/majmohar4/vegova-urnik-javno",
       },
       "project-2": {
-        title: "majmohar-new — Osebni portfolio",
+        title: "ServerMon — nadzor enega strežnika",
         description:
-          "Moja osebna spletna stran — temen, minimalističen portfolio za predstavitev znanja in projektov.",
+          "Lahka nadzorna plošča za en strežnik — brez Prometheusa, brez agentov, brez zunanje baze.",
         problem:
-          "Želel sem sodobno spletno stran, ki izraža tehnično znanje in občutek za dizajn.",
-        solution: "Razvil sem odzivno spletno stran po svojem okusu.",
-        github: "https://github.com/majmohar/majmohar-new",
-        website: "https://majmohar.eu",
+          "Hotel sem v živo videti porabo CPU, pomnilnika, diska, mreže in Docker statistiko brez postavljanja celega monitoring stacka.",
+        solution:
+          "Flask + psutil vsako sekundo vzorči podatke, prek Server-Sent Events jih pošilja v brskalnik in shranjuje JSONL dnevnik za zgodovino. Temen UI, en deploy.",
+        github: "https://github.com/majmohar4/servermon",
       },
       "project-3": {
-        title: "Discord Bot — Avtomatsko nalaganje slik v Immich",
+        title: "majmohar.eu — osebni portfolio",
         description:
-          "Python Discord bot, ki samodejno nalaga slike iz kanalov v Immich.",
+          "Ta stran. Dvojezičen (EN/SLO) portfolio, narejen z Vite, Reactom, Tailwindom in framer-motion.",
         problem:
-          "Zbiranje slik iz Discord kanalov je bilo zamudno in potratno s časom.",
-        solution: "Ustvaril sem bota, ki preko Immich APIja sam naloži slike.",
-        github: "https://github.com/majmohar/discord-immich-bot",
+          "Stari portfolio se mi je zdel statičen, počasen in ne dovolj v mojem stilu.",
+        solution:
+          "Vse na novo: glass UI, hitro preklapljanje jezika, vgrajen pregled CV-ja in CI deploy prek Vercela.",
+        github: "https://github.com/majmohar4/majmohar-react",
+        website: "https://majmohar.eu",
       },
       "project-4": {
-        title: "ESP32 Page Turner — pedal za prestavljanje strani",
+        title: "ang2 — priprava na maturo iz angleščine",
         description:
-          "Bluetooth škatlica, ki omogoča preklapljanje strani not brez rok.",
+          "Spletna aplikacija za pripravo na osnovno raven mature iz angleščine (1. izpitna pola) — vaje, besedotvorje in besedišče iz 60 preteklih izpitov (2004–2025).",
         problem:
-          "Potreboval sem način, da med igranjem klavirja z nogo preklapljam strani not.",
+          "Gradiva za pripravo so bila razmetana po PDF-jih in učbenikih, ni pa bilo načina, da bi treniral točno določene tipe nalog ali jih filtriral po letih.",
         solution:
-          "Izdelal sem pedal z ESP32, ki prek Bluetooth pošilja ukaze za obračanje strani.",
-        github: "https://github.com/majmohar/esp32-page-turner",
+          "Napisal sem enostransko aplikacijo s kategoriziranimi vajami, filtriranjem in sortiranjem; postavljena je na Vercel.",
+        github: "https://github.com/majmohar4/ang2",
       },
       "project-5": {
-        title: "RAC_Kastelic — Šolski projekti v Javi",
+        title: "Yeet — lastni file sharing",
         description:
-          "Zbirka vaj in projektov pri predmetu računalništvo na Vegovi Ljubljana pod mentorjem Kastelicem.",
+          "Minimalna storitev za nalaganje datotek s povezavami, ki potečejo po 24 urah, in skeniranjem z ClamAV.",
         problem:
-          "Med poukom moramo reševati praktične naloge in sem jih potreboval shranjevati.",
+          "Za pošiljanje datotek sem moral zaupati WeTransferju, Discordu ali čemur koli pri roki — nič od tega ni bilo moje.",
         solution:
-          "Pripravil sem skupek nalog, ki smo jih reševali v enem letu.",
-        github: "https://github.com/majmohar/RAC_Kastelic",
+          "Python servis, ki sprejme datoteko, jo skenira s ClamAV, vrne deljivo povezavo in vse skupaj samodejno pobriše po 24 urah. Čistilnik teče vsakih 15 minut.",
+        github: "https://github.com/majmohar4/yeet",
+      },
+      "project-6": {
+        title: "rac.majmohar.eu — zbirka šolskih zapiskov RAČ",
+        description:
+          "Zasebna stran, kjer zbiram zapiske, vaje in vire iz pouka računalništva.",
+        problem:
+          "Gradivo je živelo v desetinah map, PDF-jev in screenshotov — najti nekaj med ponavljanjem je bilo mučenje.",
+        solution:
+          "Naredil sem osebno zbirko z vsem na enem iskljivem mestu. Repozitorij ostaja zaseben zaradi avtorskih pravic do gradiva.",
+        website: "https://rac.majmohar.eu",
+      },
+      "project-7": {
+        title: "SimBank — bančni simulator",
+        description:
+          "Izobraževalni bančni simulator, ki posnema realne operacije z računi in transakcijami v varnem peskovniku.",
+        problem:
+          "Dijakom partnerske šole iz Litve je primanjkovalo interaktivnega načina za vadbo bančnih operacij.",
+        solution:
+          "Zgradil sem peskovnik za upravljanje računov in transakcij v nadzorovanem okolju, namenjen učenju.",
+        github: "https://github.com/majmohar4/SimBank",
+      },
+      "project-8": {
+        title: "ESP32 Page Turner — bluetooth pedal",
+        description:
+          "Bluetooth nožni pedal, ki glasbenikom omogoča obračanje not brez rok.",
+        problem:
+          "Med igranjem klavirja sem hotel obračati strani not, ne da bi spustil tipke.",
+        solution:
+          "Naredil sem pedal na ESP32, ki kot Bluetooth HID pošilja tipke napravi, ki prikazuje note.",
+        github: "https://github.com/majmohar4/esp32-page-turner",
+      },
+      "project-9": {
+        title: "Discord Immich Uploader",
+        description:
+          "Python Discord bot, ki slike, objavljene v kanalu, prezrcali v lastno Immich knjižnico.",
+        problem:
+          "Skupinski Discord kanali za fotografije so bili črna luknja — nič ni romalo v mojo zasebno foto knjižnico.",
+        solution:
+          "Bot opazuje kanal, prenese nove slike in jih prek Immich API-ja naloži v mojo instanco.",
+        github: "https://github.com/majmohar4/discord-immich-bot",
+      },
+      "project-10": {
+        title: "RAC_Kastelic — šolske vaje v Javi",
+        description:
+          "Leto vaj in manjših projektov pri predmetu računalništvo na Vegovi pod prof. Kastelicem.",
+        problem:
+          "Pri pouku smo reševali praktične naloge v Javi in sem jih hotel imeti urejene na enem mestu.",
+        solution:
+          "Vse letne naloge sem zbral v en repozitorij, ena mapa na nalogo.",
+        github: "https://github.com/majmohar4/RAC_Kastelic",
       },
     },
     cv: {

@@ -1,12 +1,11 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Videos from "@/components/Videos";
 import CVPreview from "@/components/CVPreview";
 import Projects from "@/components/Projects";
-import Footer from "@/components/Footer";
-import Skills from "@/components/Skills";
 import Friends from "@/components/Friends";
+import Skills from "@/components/Skills";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -14,7 +13,6 @@ const Index = () => {
       <Navbar />
       <Hero />
       <About />
-      {/* <Videos /> */}
       <Skills />
       <CVPreview />
       <Projects />
