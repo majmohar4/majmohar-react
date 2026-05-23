@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FileText, Download, X } from "lucide-react";
 import { Button } from "./ui/button";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,15 +8,25 @@ const CVPreview = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const { t, language } = useLanguage();
 
-  const handleExpand = () => {
-    setIsExpanded(true);
-    document.body.style.overflow = "hidden";
-  };
+  useEffect(() => {
+    document.body.style.overflow = isExpanded ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isExpanded]);
 
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsExpanded(false);
+    };
+    if (isExpanded) window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isExpanded]);
+
+  const handleExpand = () => setIsExpanded(true);
   const handleClose = (e?: React.MouseEvent) => {
     e?.stopPropagation();
     setIsExpanded(false);
-    document.body.style.overflow = "auto";
   };
 
   const cvFile =

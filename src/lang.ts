@@ -1,5 +1,3 @@
-import { title } from "process";
-
 export type Language = "EN" | "SLO";
 
 export const translations = {
@@ -117,9 +115,10 @@ export const translations = {
       download: "Download CV",
     },
     footer: {
-      connectTitle: "Contact",
+      contactTitle: "Contact",
+      connectTitle: "Connect",
       exploreTitle: "Explore",
-      radio: " Radio amateur at RK Vegova",
+      radio: "Radio amateur at RK Vegova",
       home: "Home",
       about: "About",
       skills: "Skills",
@@ -128,7 +127,7 @@ export const translations = {
       cv: "CV",
       contact: "Contact",
       backToTop: "Back to Top",
-      quote: " All rights reserved.",
+      quote: "All rights reserved.",
     },
   },
 
@@ -244,9 +243,10 @@ export const translations = {
       download: "Prenesi CV",
     },
     footer: {
-      connectTitle: "Kontakt",
+      contactTitle: "Kontakt",
+      connectTitle: "Povezave",
       exploreTitle: "Raziskuj",
-      radio: " Radioamater v RK Vegova",
+      radio: "Radioamater v RK Vegova",
       home: "Domov",
       about: "O meni",
       skills: "Znanja",
@@ -255,7 +255,7 @@ export const translations = {
       cv: "Življenjepis",
       contact: "Kontakt",
       backToTop: "Nazaj na vrh",
-      quote: " Vse pravice pridržane.",
+      quote: "Vse pravice pridržane.",
     },
   },
 };

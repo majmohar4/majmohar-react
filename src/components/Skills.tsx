@@ -113,7 +113,7 @@ const Skills: React.FC = () => {
             skills={[
               { name: "React Native", icon: "react-icon.svg" },
               { name: "ESP32 Framework", icon: "html-icon.svg" },
-              { name: "Node.js", icon: "js-icon.png" },
+              { name: "Node.js", icon: "js-icon.svg" },
             ]}
           />
 

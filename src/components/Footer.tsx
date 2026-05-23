@@ -142,7 +142,7 @@ const Footer: React.FC = () => {
 
       {/* Divider + Bottom line */}
       <div className="border-t border-white/10 mt-12 pt-6 flex flex-col md:flex-row items-center justify-between text-sm text-white/60">
-        <p>© 2025 Maj Mohar — {t?.footer?.quote}</p>
+        <p>© {new Date().getFullYear()} Maj Mohar — {t?.footer?.quote}</p>
 
         <div className="flex items-center mt-3 md:mt-0">
           <AnimatePresence mode="wait">

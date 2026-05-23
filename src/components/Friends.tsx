@@ -18,7 +18,7 @@ const Friends: React.FC = () => {
   const { t, language } = useLanguage();
 
   const friends =
-    t?.friends?.list?.length && Array.isArray(t.friends.list)
+    Array.isArray(t?.friends?.list) && t.friends.list.length > 0
       ? t.friends.list
       : baseFriends;
 

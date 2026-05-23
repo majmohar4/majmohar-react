@@ -4,20 +4,32 @@ import { Button } from "./ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
+type ProjectEntry = {
+  title?: string;
+  description?: string;
+  problem?: string;
+  solution?: string;
+  github?: string;
+  website?: string;
+};
+
 const Projects = () => {
   const [expandedProjects, setExpandedProjects] = useState<Set<string>>(new Set());
   const { t, language } = useLanguage();
 
-  // ✅ safely extract projects
-  const projects = t?.projects?.items || t?.projects || {};
-  const projectEntries = Object.entries(projects).filter(([id]) =>
-    id.startsWith("project-")
+  const projects = t?.projects ?? {};
+  const projectEntries = Object.entries(projects).filter(
+    ([id, value]) => id.startsWith("project-") && value && typeof value === "object"
   );
 
   const toggleProject = (id: string) => {
     setExpandedProjects((prev) => {
       const newSet = new Set(prev);
-      newSet.has(id) ? newSet.delete(id) : newSet.add(id);
+      if (newSet.has(id)) {
+        newSet.delete(id);
+      } else {
+        newSet.add(id);
+      }
       return newSet;
     });
   };
@@ -49,7 +61,8 @@ const Projects = () => {
         {/* ✅ Only map if we actually have project entries */}
         <div className="grid md:grid-cols-2 gap-6">
           {projectEntries.length > 0 ? (
-            projectEntries.map(([id, project]: [string, any]) => {
+            projectEntries.map(([id, project]) => {
+              const proj = project as ProjectEntry;
               const isExpanded = expandedProjects.has(id);
 
               return (
@@ -66,14 +79,14 @@ const Projects = () => {
                       <div className="flex items-start justify-between">
                         <div className="flex-1">
                           <motion.h3
-                            key={`${project.title}-${language}`}
+                            key={`${proj.title}-${language}`}
                             initial={{ opacity: 0, y: 8 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -8 }}
                             transition={transition}
                             className="text-2xl font-semibold font-grotesk mb-2"
                           >
-                            {project.title}
+                            {proj.title}
                           </motion.h3>
 
                           <motion.p
@@ -84,7 +97,7 @@ const Projects = () => {
                             transition={transition}
                             className="text-foreground/80 leading-relaxed"
                           >
-                            {project.description}
+                            {proj.description}
                           </motion.p>
                         </div>
 
@@ -122,7 +135,7 @@ const Projects = () => {
                               transition={transition}
                               className="text-sm text-foreground/80"
                             >
-                              {project.problem}
+                              {proj.problem}
                             </motion.p>
                           </div>
 
@@ -145,31 +158,31 @@ const Projects = () => {
                               transition={transition}
                               className="text-sm text-foreground/80"
                             >
-                              {project.solution}
+                              {proj.solution}
                             </motion.p>
                           </div>
 
                           <div className="flex gap-3 pt-2">
-                            {project.github && (
+                            {proj.github && (
                               <Button
                                 variant="outline"
                                 size="sm"
                                 onClick={(e) => {
                                   e.stopPropagation();
-                                  window.open(project.github, "_blank");
+                                  window.open(proj.github, "_blank");
                                 }}
                               >
                                 <Github className="w-4 h-4 mr-2" />
                                 {t?.projects?.code || "Code"}
                               </Button>
                             )}
-                            {project.website && (
+                            {proj.website && (
                               <Button
                                 variant="outline"
                                 size="sm"
                                 onClick={(e) => {
                                   e.stopPropagation();
-                                  window.open(project.website, "_blank");
+                                  window.open(proj.website, "_blank");
                                 }}
                               >
                                 <ExternalLink className="w-4 h-4 mr-2" />

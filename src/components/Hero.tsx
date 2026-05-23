@@ -4,19 +4,22 @@ import { Link } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
+const FALLBACK_ROLES = ["Developer", "Musician", "Dancer", "Engineer", "Creator"];
+
 const Hero = () => {
-  const { t, language } = useLanguage();
-  const roles = Array.isArray((t as any)?.hero?.roles)
-    ? (t as any).hero.roles
-    : ["Developer", "Musician", "Dancer", "Engineer", "Creator"];
+  const { t } = useLanguage();
+  const roles: string[] = Array.isArray(t?.hero?.roles)
+    ? t.hero.roles
+    : FALLBACK_ROLES;
   const [currentRole, setCurrentRole] = useState(0);
 
   useEffect(() => {
+    if (roles.length <= 1) return;
     const interval = setInterval(() => {
       setCurrentRole((prev) => (prev + 1) % roles.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [roles.length]);
 
   return (
     <section

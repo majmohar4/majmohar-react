@@ -7,6 +7,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Build output
 node_modules
 dist
 dist-ssr
@@ -22,3 +23,35 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# Archives / bundles (never commit build snapshots)
+Archive.zip
+*.tar
+*.tar.gz
+*.zip
+
+# AI / assistant tooling artifacts (keep out of the public repo)
+.cursor/
+.cursorrules
+.windsurf/
+.aider*
+.continue/
+.codeium/
+.claude/
+.claudeignore
+.github/copilot*
+.openai*
+.anthropic*
+CLAUDE.md
+GEMINI.md
+*.lovable*
+
+# Lockfile policy: keep npm only
+bun.lockb
+yarn.lock
+pnpm-lock.yaml

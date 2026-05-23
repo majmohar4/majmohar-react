@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 export function useActiveSection(sectionIds: string[]) {
   const [activeSection, setActiveSection] = useState("");
+  const key = sectionIds.join("|");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -12,24 +13,17 @@ export function useActiveSection(sectionIds: string[]) {
           }
         });
       },
-      {
-        root: null,
-        threshold: 0.4, // koliko % sekcije mora biti vidne
-      }
+      { root: null, threshold: 0.4 }
     );
 
-    sectionIds.forEach((id) => {
+    const ids = key.split("|").filter(Boolean);
+    ids.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
 
-    return () => {
-      sectionIds.forEach((id) => {
-        const el = document.getElementById(id);
-        if (el) observer.unobserve(el);
-      });
-    };
-  }, [sectionIds]);
+    return () => observer.disconnect();
+  }, [key]);
 
   return activeSection;
 }
